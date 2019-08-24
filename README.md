@@ -1,10 +1,12 @@
 # ethberlinzwei-babelfish_3_0
-EthBerlinZwei hackathon submission for a decentralized speech to text service
+EthBerlinZwei hackathon submission for a decentralized speech to text service!
 
 ## Team 
 
-Marcus 
-Magdalena
+[Marcus](https://github.com/MarcusJones) - Full stack
+
+[Magdalena](https://github.com/mtagda) - Data Science
+
 
 ## Concept
 
@@ -32,8 +34,15 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
  * Interfacing to Ocean Protocol for *registration* of audio file via python client library. 
  * Interfacing to Ocean Protocol for *download* of audio by processors
  * Transcription of audio using the open source [DeepSpeech](https://github.com/mozilla/DeepSpeech) tensorflow library and pre-trained model.
- * Productionization of the transcription node to AWS
+ * Productionization of the transcription service to AWS using python Flask
+ * Simulation of the verifier service
  
+### Not implemented / WIP
 
-### Not implemented
+ * Verifier smart contract not programmed in solidity or deployed
+ * Full end-end integration (manual walkthrough, see below)
+ 
+## Deep dive: Transcription service
+ 
+## Deep dive: End to end user story
 
