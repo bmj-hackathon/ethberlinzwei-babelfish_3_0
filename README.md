@@ -22,7 +22,7 @@ As a user, you specify the price for your data (0 if you want to only purchase t
 
 Next, the processor nodes bid on offering the requested service. The chosen processors execute the transcription task, and submit (oracalize) their results to a verifier smart contract. 
 
-The verifier 
+The verifier gets an input a list of results provided by the processors. It computest the Semantic Textual Similarity which is a base for obtaing fraud score for each transcription she/he got. If the fraud score of a transcription is lower than 0.5, the verifier considers it as fraud and returns 0, otherwise it outputs 1 indicating that the transcription task is verified. 
 
 ## Scope of the project
 
