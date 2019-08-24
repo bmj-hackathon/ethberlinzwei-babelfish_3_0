@@ -34,12 +34,12 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
  * Interfacing to Ocean Protocol for *registration* of audio file via python client library. 
  * Interfacing to Ocean Protocol for *download* of audio by processors
  * Transcription of audio using the open source [DeepSpeech](https://github.com/mozilla/DeepSpeech) tensorflow library and pre-trained model.
- * Productionization of the transcription service to AWS using python Flask
+ * Productionization of the transcription service with Flask on AWS
  * Simulation of the verifier service
  
 ### Not implemented / WIP
 
- * Verifier smart contract not programmed in solidity or deployed
+ * Verifier smart contract not programmed or deployed
  * Full end-end integration (manual walkthrough, see below)
  
 ## Deep dive: Transcription service
