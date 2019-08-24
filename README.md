@@ -41,8 +41,24 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
 
  * Verifier smart contract not programmed or deployed
  * Full end-end integration (manual walkthrough, see below)
+
+## Project repo organization
+
+[/frontend](/frontend) contains the angular front-end interface for the DeepSearch transcription service
+[/stt](/stt) contains the development and deployment of the backend transcription service with tensorflow
+[/scripts] contains the ocean protocol integration development
  
 ## Deep dive: Transcription service
+
+This project employs the DeepSpeech pre-trained model for speech transcription. DeepSpeech is an open source engine, using a model trained by machine learning techniques based on [Baidu's Deep Speech research paper](https://arxiv.org/abs/1412.5567). Project DeepSpeech uses Google's [TensorFlow](https://www.tensorflow.org/) to serve predictions. 
+
+The model is built using a Recurrent Neural Network, with the architecture presented in the figure below. 
+
+![](images/deepspeechrnn.png)
+
+The model API has been wrapped with Python-Flask (back-end), and presented using a simple front-end (angular). 
+
+![](images/frontend.png)
  
 ## Deep dive: End to end user story
 
@@ -87,6 +103,8 @@ Command line API parameters;
 
 ### Step 5: Verification process and transmission of final text transcription
 
+
+## Technical appendix: Ocean Protocol integraion
 
 
 
