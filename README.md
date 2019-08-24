@@ -1,5 +1,5 @@
 # ethberlinzwei-babelfish_3_0
-EthBerlinZwei hackathon submission for a decentralized speech to text service!
+EthBerlinZwei hackathon submission for a decentralized speech-to-text transcription service!
 
 ## Team 
 
@@ -46,3 +46,36 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
  
 ## Deep dive: End to end user story
 
+### Step 1: Client uses mobile phone to store audio
+
+### Step 2: Client registers audio into Ocean Protocol
+
+```bash
+python 0_publish_audio.py \
+--url https://public-data-seeding.s3.eu-central-1.amazonaws.com/Test+Video+/testcoffeeshort.wav \
+--price 10 \
+--reward 50 \
+--number-nodes 3
+
+```
+
+Command line API parameters;
+- `--url` the url of the asset
+- `--price` the demanded price to download the asset (can be 0)
+- `--reward` the offered reward for the processing job
+- `--number-nodes` the number of processors requested for this job
+
+Increasing the number of processing nodes will increase the reliability of the transcription due to the voting mechanism, but can decrease the incentive for nodes to participate. 
+
+[Youtube screencast demo - register audio](https://www.youtube.com/watch?v=cwy1cI4TBOo&feature=youtu.be)
+
+### Step 3: Processor nodes bid on the open job, and purchase the audio asset
+
+
+
+[Youtube screencast demo - consume audio](https://www.youtube.com/watch?v=-7aANaSw7Xs&feature=youtu.be)
+
+### Step 4: Processor nodes transcribe the audio, and submit results for verification
+
+
+### Step 5: Processor nodes execute
