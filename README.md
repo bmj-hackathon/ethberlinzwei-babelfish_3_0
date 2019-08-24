@@ -60,6 +60,18 @@ The model API has been wrapped with Python-Flask (back-end), and presented using
 
 ![](images/frontend.png)
  
+## Deep dive: Verifier
+
+Once a Verifier gets a list of transcriptions from the processers, he/she encodes each text into high-dimensional vectors using [Universal Sentence Encoder](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46808.pdf). 
+
+![](images/emb.png)
+
+As next, the Verifier pairwise computes semantic similarity of the transcriptions which is a measure of the degree to which two pieces of text carry the same meaning. The semantic similarity of two sentences can be trivially computed as the inner product of the encodings. The following figure visualizes how the transcriptions are similar to each other where 1 is the highest and 0 the lowest semantic similarity score. 
+
+![](images/similarity_stt.png)
+
+Then, for each transcription the Verifier computes the Fraud Score which is simply the average semantic similarity score between one transcript and the remaining ones produced by other processors. In our example, the fraud scores would be the following: 0.774652, 0.77324998, 0.76432037, 0.75055325, 0.21729597. We consider each transcription with fraud score below 0.5 as not verified (returning 0) and all others as verified (returning 1). The Verifier returns a list made of zeros and ones (in our case: 1, 1, 1, 1, 0; this means that all but the last transcript are verified). 
+
 ## Deep dive: End to end user story
 
 ### Step 1: Client uses mobile phone to store audio
