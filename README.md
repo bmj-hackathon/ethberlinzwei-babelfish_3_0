@@ -71,11 +71,22 @@ Increasing the number of processing nodes will increase the reliability of the t
 
 ### Step 3: Processor nodes bid on the open job, and purchase the audio asset
 
+```bash
+python 1_processor_purchase_file.py \
+--did did:op:f8252ea7a645475a9c519a241112ab292ff66b7d4a2049a5862b34bcfa507c30
+```
 
+Command line API parameters;
+- `--did` the Decentralized IDentifier of the registered audio asset to purchase
 
 [Youtube screencast demo - consume audio](https://www.youtube.com/watch?v=-7aANaSw7Xs&feature=youtu.be)
 
 ### Step 4: Processor nodes transcribe the audio, and submit results for verification
 
 
-### Step 5: Processor nodes execute
+
+### Step 5: Verification process and transmission of final text transcription
+
+
+
+
