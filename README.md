@@ -76,6 +76,8 @@ Then, for each transcription the Verifier computes the Fraud Score which is simp
 
 ### Step 1: Client uses mobile phone to store audio
 
+![](images/speaking.png)
+
 ### Step 2: Client registers audio into Ocean Protocol
 
 ```bash
