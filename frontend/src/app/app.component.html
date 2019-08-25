@@ -1,6 +1,10 @@
 <div style="text-align:center">
       <div class="container" style="border:1px solid #cecece;">
-         <p><img class="alignnone wp-image-309576 size-full" src="/assets/mozilla2.jpg" style="height: 300px; width: 600px;"></p>
+         <!-- <p><img class="alignnone wp-image-309576 size-full" src="/assets/mozilla2.jpg" style="height: 300px; width: 600px;"></p> -->
+         <p><img class="alignnone wp-image-309576 size-full" src="/assets/babelfish.jpg" style="height: 300px; width: 600px;"></p>
+         <h2>BabelFish 3.0</h2>
+         <h3>Decentralized speech-to-text service</h3>
+         <p>An ETHBerlinZwei Hackathon project</p>
          <div class="mt-4 col-md-12">
             <form name="recording">
                <a (click)="initiateRecording()" class="btn btn-primary" style="color: aliceblue;"
@@ -13,6 +17,7 @@
                </audio>
             </form>
          </div>
+         <div>
          <div class="mt-4 col-md-12">
             <p>
                <label>OR</label>
@@ -20,10 +25,30 @@
          </div>
          <div class="mt-4 col-md-12">
             <div class="form-group">
-               <label for="file">  Choose File  </label>
+               <label for="file"> </label><p>
                <input type="file" id="file" (change)="handleFileInput($event.target.files)">
             </div>
          </div>
+         </div>
+         
+            <div>
+               <p>
+          <form name="myForm" ng-controller="ExampleController">
+            Choose number of transcribers: <input type="range" name="range" ng-model="value" min="{{min}}"  max="{{max}}">
+          </form>
+          <p>
+
+         </div>
+
+         <div>
+            <p>
+          <form name="myForm" ng-controller="ExampleController">
+            Set reward in ETH: <input>
+          </form>
+          <p>
+         </div>
+         <button>Send for transcription!</button>
+
          <ngx-spinner></ngx-spinner>
          <div class="mt-4 col-md-12">
             <p>

@@ -31,7 +31,7 @@ def post():
         vid.write(request.data)
 
     proc = subprocess.Popen(
-        "deepspeech --model /home/magda/deepspeech-models/output_graph.pbmm --alphabet /home/magda/deepspeech-models/alphabet.txt --lm /home/magda/deepspeech-models/lm.binary --trie /home/magda/deepspeech-models/trie --audio file.wav",
+        "deepspeech --model /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/output_graph.pbmm --alphabet /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/alphabet.txt --lm /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/lm.binary --trie /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/trie --audio file.wav",
         shell=True, stdout=subprocess.PIPE, )
     output = proc.communicate()[0].decode('utf-8')
     print(output)
@@ -52,12 +52,12 @@ def post():
 def post1():
     # Get the probability of being a 'bad' audio2text processor
     prob = request.args.get('prob', default=0.0, type=float)
-    # Get the data from the POST request.  
+    # Get the data from the POST request.
     with open("file.wav", "wb") as vid:
         vid.write(request.data)
 
     proc = subprocess.Popen(
-        "deepspeech --model /home/magda/deepspeech-models/output_graph.pbmm --alphabet /home/magda/deepspeech-models/alphabet.txt --lm /home/magda/deepspeech-models/lm.binary --trie /home/magda/deepspeech-models/trie --audio file.wav",
+        "deepspeech --model /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/output_graph.pbmm --alphabet /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/alphabet.txt --lm /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/lm.binary --trie /home/batman/DATA/deepspeech/deepspeech-0.5.1-models/trie --audio file.wav",
         shell=True, stdout=subprocess.PIPE, )
     output = proc.communicate()[0].decode('utf-8')
     print(output)
@@ -114,7 +114,7 @@ def register():
 @app.route('/ocean/register/file', methods=['POST'])
 @cross_origin()
 def register1():
-    # Get the data from the POST request.  
+    # Get the data from the POST request.
     with open("file.wav", "wb") as vid:
         vid.write(request.data)
     print('TODO')

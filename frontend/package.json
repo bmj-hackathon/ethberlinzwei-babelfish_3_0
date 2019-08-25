@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "devbuild": "ng build --output-path dist --watch",
+    "dev": "ng serve --watch",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
