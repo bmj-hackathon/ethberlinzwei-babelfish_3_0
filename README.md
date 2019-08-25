@@ -20,9 +20,11 @@ Project **babelfish 3.0** envisions and enables a mobile DApp which puts the pow
 
 As a user, you specify the price for your data (0 if you want to only purchase the transcription), the reward offered to the processor services, and the number of processor nodes. With these settings, your audio file is securely registered into the Ocean Protocol decentralized data registry. 
 
-Next, the processor nodes bid on offering the requested service. The chosen processors execute the transcription task, and submit (oracalize) their results to a verifier smart contract. 
+Next, the processor nodes bid on offering the requested service. The chosen processors execute the transcription task, and submit (oracalize) their results to a Verifier smart contract. 
 
-The verifier gets an input a list of results provided by the processors. It computest the Semantic Textual Similarity which is a base for obtaing fraud score for each transcription she/he got. If the fraud score of a transcription is lower than 0.5, the verifier considers it as fraud and returns 0, otherwise it outputs 1 indicating that the transcription task is verified. 
+The Verifier gets an input a list of results provided by the processors. It computest the Semantic Textual Similarity which is a base for obtaing fraud score for each transcription she/he got. If the fraud score of a transcription is lower than 0.5, the verifier considers it as fraud and returns 0, otherwise it outputs 1 indicating that the transcription task is verified. 
+
+After that, the Verifier distributes equally to all verified processors the amount of ETH she/he got from the client, keeping some amount of ETH as a reward for performing the verification. Finally, one of the verified text files is randomly chosen by the Verifier and sent to the Ocean Protocol. The client then gets the new asset which is a verified transcription of the initial audio file.
 
 ## Scope of the project
 
@@ -117,12 +119,8 @@ Command line API parameters;
 
 ### Step 4: Processor nodes transcribe the audio, and submit results for verification
 
-
+Processor nodes download the asset from the Ocean Protocol and convert it into a text file using the deepspeech library. Then, they send the resulting transcription to the Verifier and wait for verification.
 
 ### Step 5: Verification process and transmission of final text transcription
 
-
-## Technical appendix: Ocean Protocol integraion
-
-
-
+The Verifier gets the transcriptions from all the participating processor nodes and performs the step described previously (see *Deep dive: Verifier*). After that, it distributes equally to all verified processors the amount of ETH she/he got from the client, keeping some amount of ETH as a reward for performing the verification. Finally, one of the verified text files  is randomly chosen by the Verifier and sent to the Ocean Protocol. The client then gets the new asset which is a verified transcription of the initial audio file. 
