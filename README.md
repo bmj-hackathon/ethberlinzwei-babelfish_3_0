@@ -29,6 +29,8 @@ The verifier gets an input a list of results provided by the processors. It comp
 ### Prior work, libraries, 
 This project makes use of the open source [Ocean Protocol](https://oceanprotocol.com/) project to register and 'own' data assets. 
 
+This project uses the open source [DeepSpeech](https://github.com/mozilla/DeepSpeech) library for transcription. 
+
 ### Implemented
 
  * Interfacing to Ocean Protocol for *registration* of audio file via python client library. 
@@ -45,8 +47,10 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
 ## Project repo organization
 
 [/frontend](/frontend) contains the angular front-end interface for the DeepSearch transcription service
+
 [/backend](/backend) contains the development and deployment of the backend transcription service with tensorflow
-[/scripts] contains the ocean protocol integration development
+
+[/scripts](/scripts) contains the ocean protocol integration development
  
 ## Deep dive: Transcription service
 

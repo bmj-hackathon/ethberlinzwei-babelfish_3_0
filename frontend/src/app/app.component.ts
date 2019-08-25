@@ -28,10 +28,20 @@ export class AppComponent {
         return this.domSanitizer.bypassSecurityTrustUrl(url);
     }
 
+
+    /**
+     * UPLOAD TO OCEAN
+     */
+    registerOcean() {
+      console.log("REGISTER TO OCEAN") 
+      
+    }
     /**
      * Start recording.
      */
     initiateRecording() {
+      console.log('Init Recording');
+      
         
         this.recording = true;
         let mediaConstraints = {
