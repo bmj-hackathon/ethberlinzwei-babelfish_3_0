@@ -12,6 +12,7 @@ import base64
 import soundfile as sf
 from flask_cors import CORS, cross_origin
 import subprocess
+import random
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -21,35 +22,54 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/', methods=['POST'])
 @cross_origin()
 def post():
+    # Get the probability of being a 'bad' audio2text processor
+    prob = request.args.get('prob', default=0.0, type=float)
+    # Get the data from the POST request.
     with open("file.wav", "wb") as vid:
         vid.write(request.data)
 
     proc = subprocess.Popen(
         "deepspeech --model /home/magda/deepspeech-models/output_graph.pbmm --alphabet /home/magda/deepspeech-models/alphabet.txt --lm /home/magda/deepspeech-models/lm.binary --trie /home/magda/deepspeech-models/trie --audio file.wav",
         shell=True, stdout=subprocess.PIPE, )
-    output = proc.communicate()[0]
+    output = proc.communicate()[0].decode('utf-8')
     print(output)
-
-    return jsonify(
-        username=output.decode('utf-8')
-    )
+    if random.random() < prob:
+        # Create 'bad' transcript (shuffle the words in the text and remove 2 words
+        # if there are at least 4 words in the transcript)
+        sol = str(output).strip().split()
+        random.shuffle(sol)
+        if len(sol) >= 4:
+            output = ' '.join(sol[:-2])
+        else:
+            output = ' '.join(sol)
+    return jsonify(username=output)
 
 
 @app.route('/file', methods=['POST'])
 @cross_origin()
 def post1():
+    # Get the probability of being a 'bad' audio2text processor
+    prob = request.args.get('prob', default=0.0, type=float)
+    # Get the data from the POST request.  
     with open("file.wav", "wb") as vid:
         vid.write(request.data)
 
     proc = subprocess.Popen(
         "deepspeech --model /home/magda/deepspeech-models/output_graph.pbmm --alphabet /home/magda/deepspeech-models/alphabet.txt --lm /home/magda/deepspeech-models/lm.binary --trie /home/magda/deepspeech-models/trie --audio file.wav",
         shell=True, stdout=subprocess.PIPE, )
-    output = proc.communicate()[0]
+    output = proc.communicate()[0].decode('utf-8')
     print(output)
+    if random.random() < prob:
+        # Create 'bad' transcript (shuffle the words in the text and remove 2 words
+        # if there are at least 4 words in the transcript)
+        sol = str(output).strip().split()
+        random.shuffle(sol)
+        if len(sol) >= 4:
+            output = ' '.join(sol[:-2])
+        else:
+            output = ' '.join(sol)
+    return jsonify(username=output)
 
-    return jsonify(
-        username=output.decode('utf-8')
-    )
 
 
 @app.route('/verify', methods=['POST'])
