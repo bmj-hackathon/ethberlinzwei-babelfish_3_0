@@ -34,7 +34,7 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
  * Interfacing to Ocean Protocol for *registration* of audio file via python client library. 
  * Interfacing to Ocean Protocol for *download* of audio by processors
  * Transcription of audio using the open source [DeepSpeech](https://github.com/mozilla/DeepSpeech) tensorflow library and pre-trained model.
- * Productionization of the transcription service with Flask on AWS
+ * Productionization of the transcription service with Flask
  * Simulation of the verifier service
  
 ### Not implemented / WIP
@@ -45,7 +45,7 @@ This project makes use of the open source [Ocean Protocol](https://oceanprotocol
 ## Project repo organization
 
 [/frontend](/frontend) contains the angular front-end interface for the DeepSearch transcription service
-[/stt](/stt) contains the development and deployment of the backend transcription service with tensorflow
+[/backend](/backend) contains the development and deployment of the backend transcription service with tensorflow
 [/scripts] contains the ocean protocol integration development
  
 ## Deep dive: Transcription service
