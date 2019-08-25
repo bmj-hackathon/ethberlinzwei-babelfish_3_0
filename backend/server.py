@@ -89,9 +89,10 @@ def verification():
     transcripts = list(results.values())
     print(transcripts)
     verification = fraud_score(transcripts)
-    output = ','.join(verification)
+
+    # output = ','.join(verification)
     return jsonify(
-        output
+        verification
     )
 
 

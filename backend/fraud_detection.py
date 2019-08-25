@@ -34,5 +34,12 @@ def fraud_score(list_of_outputs):
                                                                                             len(list_of_outputs) - 1))
 
             # utils.heatmap(messages, messages, corr)
-            return [str(round(i)) for i in fraud_score]
+            result  = list()
+            for val in fraud_score:
+                if val > 0.5:
+                    result.append(True)
+                else:
+                    result.append(False)
 
+            # return [str(round(i)) for i in fraud_score]
+            return result
